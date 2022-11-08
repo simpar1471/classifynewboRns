@@ -1,0 +1,26 @@
+Package: classifynewboRns
+Type: Package
+Title: Classify newborns by sex, birthweight and gestational age
+Version: 0.0.0.1
+Date: 2022-11-07
+Authors@R: person("Simon", "Parker", email = "simon.parker1471@outlook.com", role = c("aut", "cre"))
+Maintainer: Simon Parker <simon.parker1471@outlook.com>
+Description: A simple package for classifying size for gestational age in newborns using sex, birthweight and
+    gestational age at birth.
+URL: https://github.com/simpar1471/classifynewboRns
+BugReports: https://github.com/simpar1471/classifynewboRns/issues
+License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
+LazyData: true
+RoxygenNote: 7.2.1
+Imports: 
+    dplyr,
+    purrr,
+    stringr,
+    tidyselect,
+    utils
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
