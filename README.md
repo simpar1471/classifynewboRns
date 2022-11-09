@@ -41,7 +41,9 @@ head(birthweight_centiles$male, 3); head(birthweight_centiles$female, 3); head(b
 #> 1                       24.00000 0.3665 0.6020
 #> 2                       24.14286 0.3745 0.6145
 #> 3                       24.28571 0.3820 0.6270
+```
 
+``` r
 birthweight_data <- classifynewboRns::bweight_data
 head(birthweight_data, 3)
 #>   birthweight_grams gestational_age_at_birth_weeks newborn_sex birthweight_kg
@@ -63,7 +65,8 @@ head(birthweight_data_sga, 3)
 #> 2              2920                             38 unknown          2.92 AGA    
 #> 3              3400                             40 female           3.4  AGA    
 #> # … with abbreviated variable names ¹​birthweight_kg, ²​size_for_ga
-# The number of observations of size for gestational age categories can be easily retrieved
+
+# Summary counts for observations of size for gestational age categories can be easily retrieved:
 table(birthweight_data_sga$size_for_ga)
 #> 
 #> AGA LGA 

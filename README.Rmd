@@ -34,10 +34,11 @@ devtools::install_github("simpar1471/classifynewboRns")
 `classifynewboRns` comes with several in-built datasets for you to test its functions with. These include
 `bweight_centiles` and `bweight_data`. The former is used to assign size for gestational age; the latter is an example
 data input which could be annotated.
-```{r example_datasets}
+```{r example_datasets1}
 birthweight_centiles <- classifynewboRns::bweight_centiles
 head(birthweight_centiles$male, 3); head(birthweight_centiles$female, 3); head(birthweight_centiles$unknown, 3)
-
+```
+```{r example_datasets2}
 birthweight_data <- classifynewboRns::bweight_data
 head(birthweight_data, 3)
 ```
@@ -45,7 +46,8 @@ Size for gestational age for newborns can be calculated using `annotate_bweight_
 ```{r example_annotation}
 birthweight_data_sga <- classifynewboRns::annotate_bweight_table(birthweight_data)
 head(birthweight_data_sga, 3)
-# The number of observations of size for gestational age categories can be easily retrieved
+
+# Summary counts for observations of size for gestational age categories can be easily retrieved:
 table(birthweight_data_sga$size_for_ga)
 ```
 You can also calculate size for gestational age for one newborn:
