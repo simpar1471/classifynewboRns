@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# classifynewboRns
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Classify newborns with size for gestational age based on sex, age at birth in weeks, and birth weight
+
+## Installation
+
+You can install the development version of classifynewboRns from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("simpar1471/classifynewboRns")
+```
+
+## Example
+
+`classifynewboRns` comes with several in-built datasets for you to test its functions with. These include
+`bweight_centiles` and `bweight_data`. The former is used to assign size for gestational age; the latter is an example
+data input which could be annotated.
+```{r example_datasets}
+birthweight_centiles <- classifynewboRns::bweight_centiles
+head(birthweight_centiles$male, 3); head(birthweight_centiles$female, 3); head(birthweight_centiles$unknown, 3)
+
+birthweight_data <- classifynewboRns::bweight_data
+head(birthweight_data, 3)
+```
+Size for gestational age for newborns can be calculated using `annotate_bweight_table()`:
+```{r example_annotation}
+birthweight_data_sga <- classifynewboRns::annotate_bweight_table(birthweight_data)
+head(birthweight_data_sga, 3)
+# The number of observations of size for gestational age categories can be easily retrieved
+table(birthweight_data_sga$size_for_ga)
+```
+You can also calculate size for gestational age for one newborn:
+```{r example_sga}
+classifynewboRns::get_size_for_gestational_age(sex = "male", gestational.age.at.birth = 44, birthweight.in.kg = 3.42)
+```

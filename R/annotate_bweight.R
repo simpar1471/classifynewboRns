@@ -5,7 +5,7 @@
 #' @return Size classification for given parameters. Will be one of 'SGA', 'AGA' or 'LGA'.
 #' @export
 get_size_for_gestational_age <- function(sex, gestational.age.at.birth, birthweight.in.kg) {
-  relevant_row <- dplyr::filter(bweight_centiles[[tolower(x = sex)]],
+  relevant_row <- dplyr::filter(classifynewboRns::bweight_centiles[[tolower(x = sex)]],
                                 gestational_age_at_birth_weeks == gestational.age.at.birth)
   if (birthweight.in.kg < relevant_row[1, 2]) {
     return("SGA")
@@ -18,15 +18,15 @@ get_size_for_gestational_age <- function(sex, gestational.age.at.birth, birthwei
 #' @param bweight.data Data frame with columns 'newborn_sex', 'gestational_age_at_birth' and 'birthweight_kg'.
 #' @return Data frame with appended column 'size_for_ga' with sizes for each newborn in `bweight.data`.
 #' @export
-annotate_bweight_data <- function(bweight.data) {
+annotate_bweight_table <- function(bweight.data) {
   req_cols <- c("newborn_sex", "gestational_age_at_birth_weeks", "birthweight_kg")
   if (! all(purrr::map_lgl(req_cols, .f = ~ .x %in% colnames(bweight.data)))) {
     stop("Birthweight table did not have correct column names.")
   }
   bweight.data |>
     dplyr::rowwise() |>
-    dplyr::mutate(size_for_ga = get_size_for_gestational_age(sex = newborn_sex,
-                                                             gestational.age.at.birth = gestational_age_at_birth_weeks,
-                                                             birthweight.in.kg = birthweight_kg)) |>
+    dplyr::mutate(size_for_ga = classifynewboRns::get_size_for_gestational_age(sex = newborn_sex,
+                                                                               gestational.age.at.birth = gestational_age_at_birth_weeks,
+                                                                               birthweight.in.kg = birthweight_kg)) |>
     dplyr::ungroup()
 }
