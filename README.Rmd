@@ -49,7 +49,7 @@ birthweight_data_sga <- classifynewboRns::annotate_bweight_table(birthweight_dat
 head(birthweight_data_sga, 3)
 
 # Summary counts for observations of size for gestational age categories can be easily retrieved:
-table(birthweight_data_sga$size_for_ga)
+classifynewboRns::get_sfga_summaries(birthweight_data_sga$size_for_ga)
 ```
 You can also calculate size for gestational age for one newborn:
 ```{r example_sga}

@@ -72,10 +72,11 @@ head(birthweight_data_sga, 3)
 #> # … with abbreviated variable names ¹​birthweight_kg, ²​size_for_ga
 
 # Summary counts for observations of size for gestational age categories can be easily retrieved:
-table(birthweight_data_sga$size_for_ga)
-#> 
-#> AGA LGA 
-#>  62  28
+classifynewboRns::get_sfga_summaries(birthweight_data_sga$size_for_ga)
+#> # A tibble: 1 × 3
+#>     SGA   AGA   LGA
+#>   <int> <int> <int>
+#> 1     0    62    28
 ```
 
 You can also calculate size for gestational age for one newborn:
