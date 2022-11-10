@@ -5,3 +5,4 @@
 ^data-raw$
 ^ignore$
 ^README\.Rmd$
+^\.github$

@@ -4,6 +4,8 @@
 # classifynewboRns
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/simpar1471/classifynewboRns/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/simpar1471/classifynewboRns/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Classify newborns with size for gestational age based on sex, age at
